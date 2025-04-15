@@ -1,4 +1,4 @@
-def filter_by_state(operations:list[dict], state = 'EXECUTED') -> list[dict]:
+def filter_by_state(operations:list[dict], state: str = 'EXECUTED') -> list[dict]:
     """ Фильтрует список словарей, оставляя только те, у которых ключ 'state'
        равен заданному значению """
     result_operation = []
@@ -8,6 +8,6 @@ def filter_by_state(operations:list[dict], state = 'EXECUTED') -> list[dict]:
     return result_operation
 
 
-def sort_by_date(operations: list[dict], ascending: bool = True) -> list[dict]:
+def sort_by_date(operations: list[dict], reverse: bool = True) -> list[dict]:
     """ Сортирует список словарей по дате (ключ 'date') в заданном порядке """
-    return sorted(operations, key=lambda operation: operation.get('date'), reverse=ascending)
+    return sorted(operations, key=lambda operation: operation.get('date'), reverse= reverse)
