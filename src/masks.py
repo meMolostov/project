@@ -23,4 +23,7 @@ def get_mask_account(account: str) -> str:
     last_part_account = cleaned_account[-4:]
     hidden_part_account = "**"
     masked_account = f"{hidden_part_account}{last_part_account}"
-    return masked_account
+    if account == '' or len(cleaned_account) != 20:
+        return 'Введите корректный номер'
+    else:
+        return masked_account

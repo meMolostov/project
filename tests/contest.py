@@ -1,12 +1,5 @@
 import pytest
 
-#
-# def cards():
-#     return ['1234 5678 9123 4567',
-#             '1234567890098765',
-#             '0987 6543 2112 3456']
-
-
 # @pytest.fixture
 # def accounts():
 #     return ['73654108430135874305',

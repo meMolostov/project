@@ -11,10 +11,10 @@ def test_get_mask_card_number(cards,expected):
     assert get_mask_card_number(cards) == expected
 
 
-# @pytest.mark.parametrize('accounts, expected', ['**4305',
-#                                                 '**1111',
-#                                                 '**2020'])
-# def test_get_mask_account(accounts, expected):
-#     assert get_mask_account(accounts) == expected
+@pytest.mark.parametrize('accounts, expected', [('73654108430135874305','**4305'),
+                                                ('','Введите корректный номер'),
+                                                ('1919191919191919191','Введите корректный номер')])
+def test_get_mask_account(accounts, expected):
+    assert get_mask_account(accounts) == expected
 
 
