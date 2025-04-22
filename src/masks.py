@@ -2,17 +2,17 @@ def get_mask_card_number(card_number: str) -> str:
     """ Функция принимает на вход номер карты в виде числа
     и возвращает маску номера по правилу XXXX XX** **** XXXX
     """
-    if card_number == '':
-        return ''
+    cleaned_number = card_number.replace(" ", "")
+    first_part = cleaned_number[:6]
+    last_part = cleaned_number[-4:]
+    hidden_part = "** ****"
+    masked_number = f"{first_part[:4]} {first_part[4:6]}{hidden_part} {last_part}"
+    if card_number == '' or len(cleaned_number) != 16:
+        return 'Введите корректный номер'
     else:
-        cleaned_number = card_number.replace(" ", "")
-        first_part = cleaned_number[:6]
-        last_part = cleaned_number[-4:]
-        hidden_part = "** ****"
-        masked_number = f"{first_part[:4]} {first_part[4:6]}{hidden_part} {last_part}"
         return masked_number
 
-# result = get_mask_card_number('')
+# result = get_mask_card_number('213')
 # print(result)
 
 def get_mask_account(account: str) -> str:
