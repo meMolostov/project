@@ -8,7 +8,7 @@ def get_mask_card_number(card_number: str) -> str:
     hidden_part = "** ****"
     masked_number = f"{first_part[:4]} {first_part[4:6]}{hidden_part} {last_part}"
     if card_number == '' or len(cleaned_number) != 16:
-        return 'Введите корректный номер'
+        return 'Введите корректные данные'
     else:
         return masked_number
 
@@ -24,6 +24,6 @@ def get_mask_account(account: str) -> str:
     hidden_part_account = "**"
     masked_account = f"{hidden_part_account}{last_part_account}"
     if account == '' or len(cleaned_account) != 20:
-        return 'Введите корректный номер'
+        return 'Введите корректные данные'
     else:
         return masked_account
