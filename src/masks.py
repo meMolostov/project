@@ -12,8 +12,6 @@ def get_mask_card_number(card_number: str) -> str:
     else:
         return masked_number
 
-# result = get_mask_card_number('213')
-# print(result)
 
 def get_mask_account(account: str) -> str:
     """" Функция принимает на вход номер счета в виде числа
