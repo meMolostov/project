@@ -1,4 +1,5 @@
 import pytest
+from mypy.types import AnyType
 
 from src.masks import get_mask_account, get_mask_card_number
 
@@ -14,7 +15,7 @@ from src.masks import get_mask_account, get_mask_card_number
                                              ('12345 678906789067890', 'Введите корректные данные'),
                                              ('0987654321123456', '0987 65** **** 3456')
                                              ])
-def test_get_mask_card_number(cards, expected):
+def test_get_mask_card_number(cards, expected)  -> None:
     """Тестирование правильности маскирования номера карты"""
     assert get_mask_card_number(cards) == expected
 
@@ -39,7 +40,7 @@ def test_get_mask_card_number_non_string():
                                                 ('7365410843013587430500000', 'Введите корректные данные'),
                                                 ('', 'Введите корректные данные'),
                                                 ('1919191919191919191', 'Введите корректные данные')})
-def test_get_mask_account(accounts, expected):
+def test_get_mask_account(accounts, expected) -> None:
     """Тестирование правильности маскирования номера счета"""
     assert get_mask_account(accounts) == expected
 

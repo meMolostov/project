@@ -2,7 +2,8 @@ import pytest
 
 
 @pytest.fixture
-def sample_transactions():
+def sample_transactions() -> list[
+    dict[str, int | str] | dict[str, int | str] | dict[str, int | str] | dict[str, int | str]]:
     return [
         {"id": 1, "state": "EXECUTED", "amount": 100},
         {"id": 2, "state": "PENDING", "amount": 200},
@@ -12,7 +13,8 @@ def sample_transactions():
 
 
 @pytest.fixture
-def transactions_list():
+def transactions_list() -> list[
+    dict[str, str | int] | dict[str, str | int] | dict[str, str | int] | dict[str, str | int]]:
     return [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
             {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
             {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
@@ -21,7 +23,7 @@ def transactions_list():
 
 
 @pytest.fixture
-def date_list():
+def date_list() -> list[dict[str, str | int] | dict[str, str | int] | dict[str, str | int] | dict[str, str | int]]:
     return [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
             {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
             {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
