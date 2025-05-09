@@ -8,9 +8,6 @@ def filter_by_currency(transactions, currency):
         if transaction_currency == currency:
             yield transaction
 
-    #filtered_by_currency = list(filter(lambda x: x["currency"] == currency, transactions))
-    #return filtered_by_currency
-
 
 def transaction_descriptions(transactions:[]):
     """Генератор, который поочередно возвращает описания операций из списка транзакций."""
@@ -27,3 +24,4 @@ def card_number_generator(start:int, end:int):
         card_str = f"{number:016d}"
         formatted_card = " ".join([card_str[i:i + 4] for i in range(0, 16, 4)])
         yield formatted_card
+        
