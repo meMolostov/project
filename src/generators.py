@@ -9,13 +9,13 @@ def filter_by_currency(transactions, currency):
             yield transaction
 
 
-def transaction_descriptions(transactions:[]):
+def transaction_descriptions(transactions: []):
     """Генератор, который поочередно возвращает описания операций из списка транзакций."""
     for transaction in transactions:
         yield transaction.get("description")
 
 
-def card_number_generator(start:int, end:int):
+def card_number_generator(start: int, end: int):
     """ Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX,
     где X — цифра номера карты. Генератор может сгенерировать номера карт в заданном диапазоне
     от 0000 0000 0000 0001 до 9999 9999 9999 9999. Принимает начальное и конечное значения
@@ -24,4 +24,3 @@ def card_number_generator(start:int, end:int):
         card_str = f"{number:016d}"
         formatted_card = " ".join([card_str[i:i + 4] for i in range(0, 16, 4)])
         yield formatted_card
-        
