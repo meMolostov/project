@@ -1,5 +1,4 @@
 from functools import wraps
-from time import time
 
 
 def log(filename=""):
@@ -8,3 +7,29 @@ def log(filename=""):
         def wrapper(*args, **kwargs):
             func_name = func.__name__
 
+            try:
+                result = func(*args, **kwargs)
+                log_message = f"{func_name} ok.\n"
+
+                if filename:
+                    with open(filename, 'a') as f:
+                        f.write(log_message)
+                else:
+                    print(log_message, end='')
+
+                return result
+
+            except Exception as e:
+                error_message = f"{func_name} error: {type(e).__name__}. Inputs: {args}, {kwargs}\n"
+
+                if filename:
+                    with open(filename, 'a') as f:
+                        f.write(error_message)
+                else:
+                    print(error_message, end='')
+
+                raise  # Повторно поднимаем исключение
+
+        return wrapper
+
+    return decorator
