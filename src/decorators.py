@@ -9,7 +9,7 @@ def log(filename=""):
 
             try:
                 result = func(*args, **kwargs)
-                log_message = f"{func_name} ok.\n"
+                log_message = f"{func_name} ok."
 
                 if filename:
                     with open(filename, 'a') as f:
@@ -20,7 +20,7 @@ def log(filename=""):
                 return result
 
             except Exception as e:
-                error_message = f"{func_name} error: {type(e).__name__}. Inputs: {args}, {kwargs}\n"
+                error_message = f"{func_name} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
 
                 if filename:
                     with open(filename, 'a') as f:
