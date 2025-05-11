@@ -18,6 +18,7 @@ def test_log_console(capsys):
 
 
 def test_log_success(capsys):
+    """Проверка корректной работы"""
     @log()
     def test_func(a, b):
         return a + b
