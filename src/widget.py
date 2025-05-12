@@ -6,7 +6,7 @@ def mask_account_card(type_number: str) -> str:
     или счета и возвращает строку с замаскированным номером"""
     masked_type_number = ''
     if 'счет' in type_number.lower():
-        masked_type_number = 'Cчет ' + get_mask_account(type_number[5:])
+        masked_type_number = 'Счет ' + get_mask_account(type_number[5:])
     elif 'Visa Platinum' in type_number:
         masked_type_number = 'Visa Platinum ' + get_mask_card_number(type_number[-16:])
     elif 'Visa Classic' in type_number:
@@ -17,6 +17,10 @@ def mask_account_card(type_number: str) -> str:
         masked_type_number = 'MasterCard ' + get_mask_card_number(type_number[-16:])
     elif 'Maestro' in type_number:
         masked_type_number = 'Maestro ' + get_mask_card_number(type_number[-16:])
+    elif type_number == '':
+        return 'Введите корректные данные'
+    else:
+        return 'Введите корректные данные'
 
     return masked_type_number
 
@@ -27,4 +31,7 @@ def get_date(date: str) -> str:
     "ДД.ММ.ГГГГ" ("11.03.2024")"""
 
     formated_date = f'{date[8:10]}.{date[5:7]}.{date[0:4]}'
+    if date == '':
+        return 'Введите корректные данные'
+
     return formated_date
